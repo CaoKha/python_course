@@ -1,3 +1,4 @@
 {
-    "python.pythonPath": "/home/kha/Documents/python_course/venv/bin/python3"
+    "python.pythonPath": "/home/kha/Documents/python_course/venv/bin/python3",
+    "python.formatting.provider": "black"
 }
