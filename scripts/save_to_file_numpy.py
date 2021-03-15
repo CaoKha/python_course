@@ -2,7 +2,7 @@ import numpy as np
 
 # file handle
 a = np.array([1, 2, 3, 4, 5])
-np.save('/home/kha/Documents/python_course/files/outfile', a)
+np.save('files/outfile', a)
 
 b = np.load('files/outfile.npy')
 print(b)
