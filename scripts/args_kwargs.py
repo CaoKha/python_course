@@ -24,3 +24,5 @@ if __name__ == '__main__':
     print(f"Result with input as a tuple: {area_polycube(*my_polycube_tuple)}")
     print(f"Result with input as a list: {area_polycube(*my_polycube_list)}")
     print_dict(**my_dict)
+
+    

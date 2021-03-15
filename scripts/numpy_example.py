@@ -1,5 +1,6 @@
 import numpy as np
-import sympy as sp
+import sympy as sym
+import math as m
 
 # a = np.array([1, 2, 3])
 # print(a)
@@ -15,6 +16,11 @@ import sympy as sp
 # b = np.load('files/outfile.npy')
 # print(b)
 
-x = sp.symbols("x")
-y = sp.symbols("y")
-z = sp.symbols("z")
+x = sym.symbols("x")
+y = sym.symbols("y")
+z = sym.symbols("z")
+
+
+print(
+    f"simplification of sin(x)**2 + cos(x)**2= {sym.simplify(m.sin(x)**2+m.cos(x)**2)}"
+)
