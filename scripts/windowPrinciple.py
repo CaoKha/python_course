@@ -20,9 +20,13 @@ class windowMain(QtWidgets.QWidget):
         self.objectMyLineEdit = QtWidgets.QLineEdit(
             "Type the message you want copying!"
         )
+        self.objectMyRadioDeleteButton = QtWidgets.QRadioButton("Delete")
+        self.objectMyRadioCopyButton = QtWidgets.QRadioButton("Copy")
 
         # The placement of vidgets
         v_box = QtWidgets.QVBoxLayout()
+        v_box.addWidget(self.objectMyRadioDeleteButton)
+        v_box.addWidget(self.objectMyRadioCopyButton)
         v_box.addWidget(self.objectMyLabel)
         v_box.addWidget(self.objectMyLineEdit)
         v_box.addWidget(self.objectMyEraseButton)
@@ -32,22 +36,36 @@ class windowMain(QtWidgets.QWidget):
         self.setLayout(v_box)
 
         # Connect events to buttons handlers
-        self.objectMyCopyButton.clicked.connect(self.CopyClickedHandler)
-        self.objectMyEraseButton.clicked.connect(self.EraseClickedHandler)
-
-    def CopyClickedHandler(self):
-        QMessageBox.about(self, "The message copied is:", self.objectMyLineEdit.text())
-
-    def EraseClickedHandler(self):
-        reponseButton = QMessageBox.question(
-            self,
-            "Question?",
-            "Confirm to erase the message?",
-            QMessageBox.Yes | QMessageBox.No,
-            QMessageBox.No,
+        self.objectMyCopyButton.clicked.connect(
+            lambda: self.CopyClickedHandler(self.objectMyRadioCopyButton.isChecked())
         )
-        if reponseButton == QMessageBox.Yes:
-            self.objectMyLineEdit.clear()
-            print("Message deleted!")
+        self.objectMyEraseButton.clicked.connect(
+            lambda: self.EraseClickedHandler(self.objectMyRadioDeleteButton.isChecked())
+        )
+
+    def CopyClickedHandler(self, verifier):
+        if verifier:
+            QMessageBox.about(
+                self, "The message copied is:", self.objectMyLineEdit.text()
+            )
         else:
-            self.objectMyLineEdit.setText("Retry?")
+            self.objectMyCopyButton.setDisabled(True)
+            self.objectMyEraseButton.setDisabled(False)
+
+    def EraseClickedHandler(self, verifier):
+        if verifier:
+            reponseButton = QMessageBox.question(
+                self,
+                "Question?",
+                "Confirm to erase the message?",
+                QMessageBox.Yes | QMessageBox.No,
+                QMessageBox.No,
+            )
+            if reponseButton == QMessageBox.Yes:
+                self.objectMyLineEdit.clear()
+                print("Message deleted!")
+            else:
+                self.objectMyLineEdit.setText("Retry?")
+        else:
+            self.objectMyCopyButton.setDisabled(False)
+            self.objectMyEraseButton.setDisabled(True)
