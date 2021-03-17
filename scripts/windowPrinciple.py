@@ -36,7 +36,6 @@ class windowMain(QtWidgets.QWidget):
         v_box.addWidget(self.objectMyCopyButton)
         v_box.addWidget(self.objectMySaveButton)
 
-
         # Mail application
         self.setLayout(v_box)
 
@@ -78,8 +77,10 @@ class windowMain(QtWidgets.QWidget):
             self.objectMyEraseButton.setDisabled(True)
 
     def SaveFunction(self):
-        with open("files/saved_text_from_PyQt5.txt","w") as f:
+        with open("files/saved_text_from_PyQt5.txt", "w") as f:
             my_text = self.objectMyTextEdit.toPlainText()
             f.write(my_text)
-            print("your text is saved in folder named \"files\"")
-            QMessageBox.about(self,"Information Message","Your text is saved with success!")
+            print('your text is saved in folder named "files"')
+            QMessageBox.about(
+                self, "Information Message", "Your text is saved with success!"
+            )
