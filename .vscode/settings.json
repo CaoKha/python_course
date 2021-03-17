@@ -1,0 +1,10 @@
+{
+    "python.pythonPath": "venv\\Scripts\\pythonw.exe",
+    "python.formatting.provider": "black",
+    "editor.fontSize": 13.5,
+    "editor.fontFamily": "Consolas, 'Courier New', monospace",
+    "python.autoComplete.extraPaths": [
+        "venv\\Lib\\site-packages",
+        "scripts"
+    ]
+}

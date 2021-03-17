@@ -45,8 +45,9 @@ def windowFunction():
     applicationExec = application.exec_()
     sys.exit(applicationExec)
 
+
 if __name__ == "__main__":
-    
+
     application = QApplication(sys.argv)
 
     # Please comment out the other Examples when working with a specific Example.
@@ -57,7 +58,7 @@ if __name__ == "__main__":
     # # Example 2
     # windowFunction()
 
-    # Example 3
+    # Example 3 & 4
     objectWindow = windowMain()
     objectWindow.show()
     applicationExec = application.exec_()
