@@ -2,6 +2,7 @@ import sys
 from PyQt5 import QtWidgets, QtGui
 from PyQt5.QtGui import QIcon
 from PyQt5.QtWidgets import QApplication, QWidget
+from windowPrinciple import windowMain
 
 # Example 1
 class Example(QWidget):
@@ -44,14 +45,20 @@ def windowFunction():
     applicationExec = application.exec_()
     sys.exit(applicationExec)
 
-
 if __name__ == "__main__":
-
+    
     application = QApplication(sys.argv)
 
+    # Please comment out the other Examples when working with a specific Example.
     # # Example 1
     # objectExemple = Example()
     # sys.exit(application.exec_())
 
-    # Example 2
-    windowFunction()
+    # # Example 2
+    # windowFunction()
+
+    # Example 3
+    objectWindow = windowMain()
+    objectWindow.show()
+    applicationExec = application.exec_()
+    sys.exit(applicationExec)
